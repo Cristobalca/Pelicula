@@ -11,7 +11,7 @@
                     </a>
 
                 @endif
-                <form method="GET" action="{{ url('/peliculas') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
+                {{-- <form method="GET" action="{{ url('/peliculas') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                     <div class="input-group">
                         <input type="text" class="form-control" name="search" placeholder="Buscar..." value="{{ request('search') }}">
                         <span class="input-group-append">
@@ -20,7 +20,7 @@
                             </button>
                         </span>
                     </div>
-                </form>
+                </form> --}}
         </div>
                 <div class="row row-cols-md-4">
 

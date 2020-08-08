@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/peliculas') }}">
                     {{ config('app.name', 'Pelis Now') }}
@@ -38,6 +38,16 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <form method="GET" action="{{ url('/peliculas') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right mr-2" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control mr-sm-2" name="search" placeholder="Buscar...Pelicula" value="{{ request('search') }}">
+                                <span class="input-group-append">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

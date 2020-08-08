@@ -32,7 +32,7 @@
                              <form method="POST" action="{{ url('peliculas' . '/' . $pelicula->id) }}" accept-charset="UTF-8" style="display:inline">
                                  {{ method_field('DELETE') }}
                                  {{ csrf_field() }}
-                                 <button type="submit" class="btn btn-danger btn-sm mb-1" title="Delete pelicula" onclick="return confirm(&quot;Seguro que quiere borralo&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Borrar</button><br>
+                                 <button type="submit" class="btn btn-danger btn-sm mb-1" title="Delete pelicula" onclick="return confirm(&quot;Seguro que quiere borralo?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Borrar</button><br>
 
                              </form>
                              <a href="{{ url('/peliculas') }}" title="Back"><button class="btn btn-warning btn-md mb-1"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button></a><br>
