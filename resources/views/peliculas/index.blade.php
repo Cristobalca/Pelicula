@@ -35,13 +35,13 @@
                                     </div>
                                             @if (Auth::user())
                                     <div class="card-footer">
-                                            <a href="{{ url('/peliculas/' . $item->id) }}" title="View pelicula"><button class="btn btn-info btn-md"><i class="fa fa-eye" aria-hidden="true"></i> Ver Trailer</button></a>
+                                            <a href="{{ url('/peliculas/' . $item->id) }}" title="View pelicula"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver Trailer</button></a>
 
-                                            <a href="{{ url('/peliculas/' . $item->id . '/edit') }}" title="Edit pelicula"><button class="btn btn-primary btn-md"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
+                                            <a href="{{ url('/peliculas/' . $item->id . '/edit') }}" title="Edit pelicula"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</button></a>
                                             <form method="POST" action="{{ url('/peliculas' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-md" title="Delete pelicula" onclick="return confirm(&quot;Seguro que quieres borrar?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Borrar</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete pelicula" onclick="return confirm(&quot;Seguro que quieres borrar?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Borrar</button>
                                             </form>
                                         </div>
                                             @else
