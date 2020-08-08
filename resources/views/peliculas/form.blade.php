@@ -15,11 +15,11 @@
 </div>
 <div class="form-group {{ $errors->has('Link') ? 'has-error' : ''}}">
     <label for="Link" class="control-label">{{ 'Link' }}</label>
-    <input class="form-control" name="Link" type="text" id="Link" value="{{ isset($pelicula->Link) ? $pelicula->Link : ''}}" >
+    <input class="form-control" name="Link" type="text" id="Link" value="{{ isset($pelicula->Link) ? $pelicula->Link : ''}}" placeholder="Solo colocar el ID de video Youtube" >
     {!! $errors->first('Link', '<p class="help-block">:message</p>') !!}
 </div>
 
 
 <div class="form-group">
-    <input class="btn btn-primary" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">
+    <input class="btn btn-primary btn-lg" type="submit" value="{{ $formMode === 'editar' ? 'actualizar' : 'crear' }}">
 </div>

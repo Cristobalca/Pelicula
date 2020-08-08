@@ -11,10 +11,25 @@
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
+
                         </div>
                     @endif
+                    @auth
+                   <h2> Hola!! Bienvenido Administrador</h2>
+                    <br>
+                    <br>
+                    <a href="{{ url('/peliculas') }}" title="Back">
+                        <button class="btn btn-success btn-lx"><i class="fa fa-arrow-left" aria-hidden="true"></i> Ir a portadas</button></a>
 
-                    {{ __('You are logged in!') }}
+                        @else
+                      <h2>  {{ __('As Cerrado Seccion Good bye!!') }}</h2>
+                    <br>
+                    <br>
+                    <a href="{{ url('/peliculas') }}" title="Back">
+                        <button class="btn btn-success btn-lx"><i class="fa fa-arrow-left" aria-hidden="true"></i> Ir a portadas</button></a>
+                    @endauth
+
+
                 </div>
             </div>
         </div>

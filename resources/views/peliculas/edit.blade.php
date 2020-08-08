@@ -3,15 +3,17 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
+        {{-- @include('admin.sidebar') --}}
 
-            <div class="col-md-9">
+            <div class="col-md-10">
+                <a href="{{ url('/peliculas') }}" title="Back">
+                    <button class="btn btn-warning btn-lg"><i class="fa fa-arrow-left" aria-hidden="true"></i> Volver</button></a>
+                <br />
+                <br />
                 <div class="card">
-                    <div class="card-header">Edit pelicula #{{ $pelicula->id }}</div>
+                    <div class="card-header">Edit pelicula {{ $pelicula->Titulo }}</div>
                     <div class="card-body">
-                        <a href="{{ url('/peliculas') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <br />
-                        <br />
+
 
                         @if ($errors->any())
                             <ul class="alert alert-danger">
@@ -25,7 +27,7 @@
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 
-                            @include ('peliculas.form', ['formMode' => 'edit'])
+                            @include ('peliculas.form', ['formMode' => 'editar'])
 
                         </form>
 

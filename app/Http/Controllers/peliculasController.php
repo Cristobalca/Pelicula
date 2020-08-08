@@ -19,7 +19,7 @@ class peliculasController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 4;
 
         if (!empty($keyword)) {
             $peliculas = pelicula::where('Portada', 'LIKE', "%$keyword%")

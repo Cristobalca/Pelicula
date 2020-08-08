@@ -16,20 +16,13 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::resource('peliculas', 'peliculasController');
-Route::resource('peliculas', 'peliculasController');
-Route::resource('peliculas', 'peliculasController');
-Route::resource('peliculas', 'peliculasController');
 Auth::routes(['register'=>false,'password.reset'=>false,'reset'=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/peliculas','peliculasController@index')->name('pelicula');
 
-Auth::routes(['register'=>false,'password.reset'=>false,'reset'=>false]);
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes(['register'=>false,'password.reset'=>false,'reset'=>false]);
 
