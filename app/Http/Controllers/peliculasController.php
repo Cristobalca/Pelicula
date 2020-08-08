@@ -7,6 +7,7 @@ use App\Http\Requests;
 
 use App\pelicula;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class peliculasController extends Controller
 {
@@ -52,16 +53,18 @@ class peliculasController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $requestData = $request->all();
-                if ($request->hasFile('Portada')) {
+                if ($request->hasFile('Portada'))
+                 {
             $requestData['Portada'] = $request->file('Portada')
                 ->store('uploads', 'public');
         }
 
+
         pelicula::create($requestData);
 
-        return redirect('peliculas')->with('flash_message', 'pelicula added!');
+        return redirect('peliculas')->with('flash_message', 'pelicula Creada!');
     }
 
     /**
@@ -102,9 +105,13 @@ class peliculasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
         $requestData = $request->all();
                 if ($request->hasFile('Portada')) {
+
+                    $pelicula = pelicula::findOrFail($id);
+
+                    Storage::delete('public/'.$pelicula->Portada);
             $requestData['Portada'] = $request->file('Portada')
                 ->store('uploads', 'public');
         }
@@ -112,7 +119,8 @@ class peliculasController extends Controller
         $pelicula = pelicula::findOrFail($id);
         $pelicula->update($requestData);
 
-        return redirect('peliculas')->with('flash_message', 'pelicula updated!');
+
+        return redirect('peliculas')->with('flash_message', 'pelicula Actualizada!');
     }
 
     /**
@@ -124,8 +132,16 @@ class peliculasController extends Controller
      */
     public function destroy($id)
     {
+
+        $pelicula = pelicula::findOrFail($id);
+
+       if(Storage::delete('public/'.$pelicula->Portada)){
+
         pelicula::destroy($id);
 
-        return redirect('peliculas')->with('flash_message', 'pelicula deleted!');
+       }
+
+
+        return redirect('peliculas')->with('flash_message', 'pelicula Borrada!');
     }
 }

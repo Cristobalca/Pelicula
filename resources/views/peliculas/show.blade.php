@@ -7,19 +7,21 @@
 
             <div class="col-md-12 center">
 
-                <iframe width="756" height="400" src="{{$pelicula->Link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="1106" height="622" src="{{'https://www.youtube.com/embed/'.$pelicula->Link.'?autoplay=1'}}"
+                    rel=0 control=0 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen  ></iframe>
+
 
                 <div class="card">
                     <div class="card-header">{{ $pelicula->Titulo }}</div>
                     <div class="card-body">
-
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tbody>
-
-                                    <tr><th> Portada </th><td> <img src="{{ asset('storage').'/'.$pelicula->Portada }}"  width="200" height="300" alt="Foto">
-                                    </td></tr><tr><th> Titulo </th><td> {{ $pelicula->Titulo }} </td></tr><tr><th> Descripcion </th><td> {{ $pelicula->Descripcion }} </td></tr>
-                               <tr><th>Actions</th><td><a href="{{ url('/peliculas') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                      <img src="{{ asset('storage').'/'.$pelicula->Portada }}"  width="200" height="300" alt="Foto">
+                      <div class="row">
+                        <h3>Titulo </h3>{{ $pelicula->Titulo }}
+                        <h3>Descripcion </h3>| {{ $pelicula->Descripcion }}
+                    </div>
+                        <h3>Actions</h3>
+                        <a href="{{ url('/peliculas') }}" title="Back"><button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                                 @if (Auth::user())
                                 <a href="{{ url('/peliculas/' . $pelicula->id . '/edit') }}" title="Edit pelicula"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
 
@@ -29,12 +31,7 @@
                                     <button type="submit" class="btn btn-danger btn-sm" title="Delete pelicula" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
                                 </form>
                                 @endif
-                                </td></tr>
-                                </tbody>
-                            </table>
                         </div>
-
-
                     </div>
                 </div>
             </div>
